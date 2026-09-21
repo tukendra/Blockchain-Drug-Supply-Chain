@@ -1,0 +1,40 @@
+{
+    "name": "pharmasupplychain",
+    "version": "1.0.0",
+    "main": "truffle-config.js",
+    "proxy": "http://localhost:4000",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "start": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "node server.js",
+        "client": "cd drug_ui && npm start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.2.3",
+        "concurrently": "^9.2.1",
+        "ethers": "^5.8.0",
+        "hardhat": "^2.26.3"
+    },
+    "dependencies": {
+        "@craco/craco": "^7.1.0",
+        "@openzeppelin/contracts": "^4.9.6",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "ipfs-http-client": "^56.0.3",
+        "pinata": "^2.5.0",
+        "qrcode.react": "^4.2.0",
+        "upgrade": "^1.1.0",
+        "web3": "^4.16.0"
+    },
+    "eslintConfig": {
+        "rules": {
+            "no-unused-vars": "warn"
+        }
+    }
+}

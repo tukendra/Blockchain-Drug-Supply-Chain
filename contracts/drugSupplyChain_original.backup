@@ -1,0 +1,151 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+contract DrugSupplyChain {
+
+    address public owner;
+    string public contractName;
+    string public contractVersion;
+
+    constructor() {
+    owner = msg.sender;
+    contractName = "DrugSupplyChain";
+    contractVersion = "1.0";
+    }
+
+    // ************ STRUCTS ************
+   /* struct MHFW {
+        \\uint govId;
+        \\string name;
+        \\string licenseApproval;
+        \\uint distributorId;
+        Manufacturer();
+        Supplier();
+        Distributor();
+        Pharmacy();
+        Customer();
+        LotBatch();
+    }
+    */
+
+    struct Manufacturer {
+        uint manufacturerId;
+        string location;
+        string licenseNo;
+        uint supplierId;
+        uint govId;
+    }
+
+    struct Supplier {
+        uint supplierId;
+        string name;
+        string location;
+        string licenseNo;
+        uint govId;
+    }
+
+    struct Distributor {
+        uint distributorId;
+        string name;
+        string location;
+        string licenseNo;
+        uint manufacturerId;
+    }
+
+    struct Pharmacy {
+        uint pharmacyId;
+        string name;
+        string location;
+        string licenseNo;
+        uint distributorId;
+    }
+
+    struct Customer {
+    uint customerId;
+    string name;
+    string contactInfo;
+    uint pharmacyId;
+    }
+
+    struct LotBatch {
+        uint lotId;
+        string drugName;
+        uint quantity;
+        string mfgDate;
+        string expDate;
+        uint manufacturerId;
+    }
+
+    struct Shipment {
+        uint shipmentId;
+        uint lotId;
+        uint sourceId;
+        uint destinationId;
+        string shipDate;
+        string status;
+    }
+
+    struct AuditLog {
+        uint auditId;
+        string entity;
+        string action;
+        string timestamp;
+        uint userId;
+    }
+
+    //struct IPFSRecord {
+   //     uint recordId;
+  //      string cid;          // IPFS hash (CID)
+   //     string txHash;       // Ethereum transaction hash
+   //     string timestamp;    // when stored
+   // }
+
+    // ************ STORAGE MAPPINGS ************
+   // mapping(uint => MHFW) public mhfw;
+    mapping(uint => Manufacturer) public manufacturers;
+    mapping(uint => Supplier) public suppliers;
+    mapping(uint => Distributor) public distributors;
+    mapping(uint => Pharmacy) public pharmacies;
+    mapping(uint => Customer) public customers;
+    mapping(uint => LotBatch) public lots;
+    mapping(uint => Shipment) public shipments;
+    mapping(uint => AuditLog) public auditLogs;
+
+    // ************ FUNCTIONS *************
+    /*function addMHFW(uint _govId, string memory _name, string memory _licenseApproval, uint _distributorId) public {
+        mhfw[_govId] = MHFW(_govId, _name, _licenseApproval, _distributorId);
+    }
+    */
+
+    function addManufacturer(uint _id, string memory _location, string memory _licenseNo, uint _supplierId, uint _govId) public {
+        manufacturers[_id] = Manufacturer(_id, _location, _licenseNo, _supplierId, _govId);
+    }
+
+    function addSupplier(uint _id, string memory _name, string memory _location, string memory _licenseNo, uint _govId) public {
+        suppliers[_id] = Supplier(_id, _name, _location, _licenseNo, _govId);
+    }
+
+    function addDistributor(uint _id, string memory _name, string memory _location, string memory _licenseNo, uint _manufacturerId) public {
+        distributors[_id] = Distributor(_id, _name, _location, _licenseNo, _manufacturerId);
+    }
+
+    function addPharmacy(uint _id, string memory _name, string memory _location, string memory _licenseNo, uint _distributorId) public {
+        pharmacies[_id] = Pharmacy(_id, _name, _location, _licenseNo, _distributorId);
+    }
+
+    function addCustomer(uint _id, string memory _name, string memory _contactInfo, uint _pharmacyId) public {
+    customers[_id] = Customer(_id, _name, _contactInfo, _pharmacyId);
+    }
+
+    function addLot(uint _lotId, string memory _drugName, uint _quantity, string memory _mfgDate, string memory _expDate, uint _manufacturerId) public {
+        lots[_lotId] = LotBatch(_lotId, _drugName, _quantity, _mfgDate, _expDate, _manufacturerId);
+    }
+
+    function addShipment(uint _shipmentId, uint _lotId, uint _sourceId, uint _destinationId, string memory _shipDate, string memory _status) public {
+        shipments[_shipmentId] = Shipment(_shipmentId, _lotId, _sourceId, _destinationId, _shipDate, _status);
+    }
+
+    function addAuditLog(uint _auditId, string memory _entity, string memory _action, string memory _timestamp, uint _userId) public {
+        auditLogs[_auditId] = AuditLog(_auditId, _entity, _action, _timestamp, _userId);
+    }
+}

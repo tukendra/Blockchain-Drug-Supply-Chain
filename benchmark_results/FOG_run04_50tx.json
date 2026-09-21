@@ -1,0 +1,980 @@
+{
+  "experiment": {
+    "architecture": "WITH_FOG",
+    "condition": "FOG",
+    "runNumber": 4,
+    "transactionCount": 50,
+    "delayMs": 1000,
+    "benchmarkId": "FOG_RUN_04_50TX_1789693388006",
+    "chainId": 1337,
+    "rpcUrl": "http://127.0.0.1:7545",
+    "contractAddress": "0xc1d164b6F650aCB8b77C802198995B44EFA6aAD6",
+    "benchmarkStartTime": "2026-09-18T01:03:08.020Z",
+    "generatedAt": "2026-09-18T01:04:13.558Z"
+  },
+  "resultsSummary": {
+    "successfulTransactions": 50,
+    "failedTransactions": 0,
+    "successRatePercent": 100,
+    "elapsedSeconds": 65.538,
+    "controlledThroughputTPS": 0.7629,
+    "serverReportedThroughputTPS": 0.7629
+  },
+  "metrics": {
+    "successfulTransactions": 50,
+    "failedTransactions": 0,
+    "successRatePercent": 100,
+    "endToEndLatencyMs": {
+      "n": 50,
+      "mean": 39.205,
+      "median": 41.671,
+      "standardDeviation": 13.359,
+      "p95": 58.029,
+      "ci95HalfWidth": 3.703,
+      "min": 17.277,
+      "max": 77.266
+    },
+    "ipfsStorageTimeMs": {
+      "n": 50,
+      "mean": 37.455,
+      "median": 40.056,
+      "standardDeviation": 13.363,
+      "p95": 56.416,
+      "ci95HalfWidth": 3.704,
+      "min": 15.515,
+      "max": 75.592
+    },
+    "blockchainConfirmationMs": {
+      "n": 50,
+      "mean": 268.889,
+      "median": 191.309,
+      "standardDeviation": 169.433,
+      "p95": 602.216,
+      "ci95HalfWidth": 46.964,
+      "min": 146.422,
+      "max": 836.47
+    },
+    "serverRoundTripMs": {
+      "n": 50,
+      "mean": 50.348,
+      "median": 52.59,
+      "standardDeviation": 13.488,
+      "p95": 68.868,
+      "ci95HalfWidth": 3.739,
+      "min": 27.093,
+      "max": 88.772
+    },
+    "fogOrEdgeProcessingMs": {
+      "n": 50,
+      "mean": 0.015,
+      "median": 0.014,
+      "standardDeviation": 0.003,
+      "p95": 0.017,
+      "ci95HalfWidth": 0.001,
+      "min": 0.012,
+      "max": 0.033
+    }
+  },
+  "transactions": [
+    {
+      "sequence": 1,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x4b3f812659d4ee561f7286dcea524fa1eb0d18002271bce4d475c60bc62629ce",
+      "blockNumber": 657,
+      "blockchainLatencyMs": 836.47,
+      "serverRoundTripMs": 79.717,
+      "serverMetrics": {
+        "latencyMs": 67.195,
+        "ipfsStorageTimeMs": 65.118,
+        "fogProcessingTimeMs": 0.017,
+        "cumulativeThroughputTPS": 0.1357,
+        "benchmarkThroughputTPS": 1.0941,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 2,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x1301c0ad3be92172f7a31262f687cfcd545727e6ae3460e7fb9bff97ea366a99",
+      "blockNumber": 658,
+      "blockchainLatencyMs": 608.85,
+      "serverRoundTripMs": 32.484,
+      "serverMetrics": {
+        "latencyMs": 17.988,
+        "ipfsStorageTimeMs": 16.08,
+        "fogProcessingTimeMs": 0.018,
+        "cumulativeThroughputTPS": 0.1364,
+        "benchmarkThroughputTPS": 0.7802,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 3,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0xb7f922ac052e07b8dbb7e19a7bcf48cfc1e966a00450815c5e12e05482fd0cee",
+      "blockNumber": 659,
+      "blockchainLatencyMs": 594.108,
+      "serverRoundTripMs": 88.772,
+      "serverMetrics": {
+        "latencyMs": 77.266,
+        "ipfsStorageTimeMs": 75.592,
+        "fogProcessingTimeMs": 0.017,
+        "cumulativeThroughputTPS": 0.1371,
+        "benchmarkThroughputTPS": 0.704,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 4,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0x25939d1e3974a0dde35ae7d2af907c7d3ff49f9e0579d97dd8ebc775f6d98f93",
+      "blockNumber": 660,
+      "blockchainLatencyMs": 545.636,
+      "serverRoundTripMs": 29.871,
+      "serverMetrics": {
+        "latencyMs": 18.449,
+        "ipfsStorageTimeMs": 16.311,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1378,
+        "benchmarkThroughputTPS": 0.6835,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 5,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0xcde364ee8eec36c8fb458c70b2fd57bfb861a42e2da2d483ab4fbb374b79b74b",
+      "blockNumber": 661,
+      "blockchainLatencyMs": 483.766,
+      "serverRoundTripMs": 56.512,
+      "serverMetrics": {
+        "latencyMs": 43.918,
+        "ipfsStorageTimeMs": 42.249,
+        "fogProcessingTimeMs": 0.033,
+        "cumulativeThroughputTPS": 0.1385,
+        "benchmarkThroughputTPS": 0.6751,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 6,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x09e44d731129c4020b318760941d523110ff3585a3cfcf8d985adaa7a0e98d0a",
+      "blockNumber": 662,
+      "blockchainLatencyMs": 682.922,
+      "serverRoundTripMs": 56.062,
+      "serverMetrics": {
+        "latencyMs": 43.687,
+        "ipfsStorageTimeMs": 42.246,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1392,
+        "benchmarkThroughputTPS": 0.6549,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 7,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0x6d7961fce0c06c438053d9f1b6575979c6d0bfa8d6751b27e92837dfc9322183",
+      "blockNumber": 663,
+      "blockchainLatencyMs": 224.282,
+      "serverRoundTripMs": 58.365,
+      "serverMetrics": {
+        "latencyMs": 42.98,
+        "ipfsStorageTimeMs": 41.104,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1399,
+        "benchmarkThroughputTPS": 0.6693,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 8,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0x5fee161a3d7432f6af989d52e315c400320db28b736ead5557ec00e850f05655",
+      "blockNumber": 664,
+      "blockchainLatencyMs": 590.725,
+      "serverRoundTripMs": 34.893,
+      "serverMetrics": {
+        "latencyMs": 20.821,
+        "ipfsStorageTimeMs": 18.117,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1406,
+        "benchmarkThroughputTPS": 0.6611,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 9,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0xaff72c3428b53532317d97ee856775ae28d8723e6051e1bd00287f3f37cdab3a",
+      "blockNumber": 665,
+      "blockchainLatencyMs": 578.07,
+      "serverRoundTripMs": 68.041,
+      "serverMetrics": {
+        "latencyMs": 57.44,
+        "ipfsStorageTimeMs": 55.836,
+        "fogProcessingTimeMs": 0.016,
+        "cumulativeThroughputTPS": 0.1413,
+        "benchmarkThroughputTPS": 0.6543,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 10,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x7e6ff7b7102b9e340bc7e56e2be8e4f1cb6cda976d866ae242befb00f5d2be56",
+      "blockNumber": 666,
+      "blockchainLatencyMs": 593.184,
+      "serverRoundTripMs": 27.589,
+      "serverMetrics": {
+        "latencyMs": 17.302,
+        "ipfsStorageTimeMs": 15.836,
+        "fogProcessingTimeMs": 0.017,
+        "cumulativeThroughputTPS": 0.142,
+        "benchmarkThroughputTPS": 0.6499,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 11,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0x8dc638d96a7778c15f196308dd07165fd54eca4eda3555bb9175f681896a3d82",
+      "blockNumber": 667,
+      "blockchainLatencyMs": 174.908,
+      "serverRoundTripMs": 54.19,
+      "serverMetrics": {
+        "latencyMs": 45.106,
+        "ipfsStorageTimeMs": 43.658,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1427,
+        "benchmarkThroughputTPS": 0.6613,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 12,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0xc5029d8498a6fa11511728e395aa84080843584f9f4872a79405426f8fb001c7",
+      "blockNumber": 668,
+      "blockchainLatencyMs": 172.534,
+      "serverRoundTripMs": 52.056,
+      "serverMetrics": {
+        "latencyMs": 42.758,
+        "ipfsStorageTimeMs": 40.984,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1434,
+        "benchmarkThroughputTPS": 0.6716,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 13,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0xa4258e1f644b9df583f75057b3cafa2295cbe83b31abad21a36c5ea166e36c65",
+      "blockNumber": 669,
+      "blockchainLatencyMs": 146.422,
+      "serverRoundTripMs": 56.203,
+      "serverMetrics": {
+        "latencyMs": 44.694,
+        "ipfsStorageTimeMs": 42.928,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1442,
+        "benchmarkThroughputTPS": 0.6816,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 14,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x9933ae482097c05bdbbbbaaab1268fa297dfe79720a3669ae65164b246ff04e5",
+      "blockNumber": 670,
+      "blockchainLatencyMs": 249.59,
+      "serverRoundTripMs": 61.146,
+      "serverMetrics": {
+        "latencyMs": 50.693,
+        "ipfsStorageTimeMs": 49.115,
+        "fogProcessingTimeMs": 0.016,
+        "cumulativeThroughputTPS": 0.1449,
+        "benchmarkThroughputTPS": 0.6862,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 15,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0xf9c1009fe77a6fea167f8c6925905f2d72917ea9c2f1bc5860756c38f293671d",
+      "blockNumber": 671,
+      "blockchainLatencyMs": 196.323,
+      "serverRoundTripMs": 62.532,
+      "serverMetrics": {
+        "latencyMs": 50.686,
+        "ipfsStorageTimeMs": 48.846,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1456,
+        "benchmarkThroughputTPS": 0.6921,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 16,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0xcec6f68d18d165a03a4e2ede7a54c7221f49a25aef8469cf6fdeab39c3bff91d",
+      "blockNumber": 672,
+      "blockchainLatencyMs": 160.001,
+      "serverRoundTripMs": 68.67,
+      "serverMetrics": {
+        "latencyMs": 57.286,
+        "ipfsStorageTimeMs": 55.514,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1463,
+        "benchmarkThroughputTPS": 0.6983,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 17,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x7ba23e098094336bb5960798288f00d3a5aecd041762db2513d15b3ebdc66e2c",
+      "blockNumber": 673,
+      "blockchainLatencyMs": 220.692,
+      "serverRoundTripMs": 27.093,
+      "serverMetrics": {
+        "latencyMs": 17.966,
+        "ipfsStorageTimeMs": 16.52,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.147,
+        "benchmarkThroughputTPS": 0.7033,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 18,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x144e5f897cdc00d272a2b3687465f9c8b777130a56332219b23cc17ea3d07262",
+      "blockNumber": 674,
+      "blockchainLatencyMs": 190.461,
+      "serverRoundTripMs": 52.225,
+      "serverMetrics": {
+        "latencyMs": 40.381,
+        "ipfsStorageTimeMs": 38.738,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1478,
+        "benchmarkThroughputTPS": 0.7079,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 19,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0x6b79fe0e17649617f2acd0e6ed79a82b498dea3e1f7fef0920093763238bd042",
+      "blockNumber": 675,
+      "blockchainLatencyMs": 221.61,
+      "serverRoundTripMs": 49.65,
+      "serverMetrics": {
+        "latencyMs": 38.352,
+        "ipfsStorageTimeMs": 36.688,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1485,
+        "benchmarkThroughputTPS": 0.7115,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 20,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0x2f99c80102b8ff761d36a3f1d54fb79ac8e9a24d6f4e8249c473c2411c0abdc1",
+      "blockNumber": 676,
+      "blockchainLatencyMs": 207.539,
+      "serverRoundTripMs": 51.159,
+      "serverMetrics": {
+        "latencyMs": 39.295,
+        "ipfsStorageTimeMs": 37.727,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1492,
+        "benchmarkThroughputTPS": 0.7149,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 21,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0x59c6552c209f0f386c11c9b8a05f10bc076c4c899bee2fda30fc245e9f36e457",
+      "blockNumber": 677,
+      "blockchainLatencyMs": 285.007,
+      "serverRoundTripMs": 54.518,
+      "serverMetrics": {
+        "latencyMs": 42.904,
+        "ipfsStorageTimeMs": 41.107,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1499,
+        "benchmarkThroughputTPS": 0.7158,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 22,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x57155bfb5a87a36ce3516f51f978f6a4fe537e8edde5463e3d1ed240ffd38d98",
+      "blockNumber": 678,
+      "blockchainLatencyMs": 191.363,
+      "serverRoundTripMs": 29.627,
+      "serverMetrics": {
+        "latencyMs": 19.341,
+        "ipfsStorageTimeMs": 17.415,
+        "fogProcessingTimeMs": 0.012,
+        "cumulativeThroughputTPS": 0.1506,
+        "benchmarkThroughputTPS": 0.7199,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 23,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0xd78335880b608c805c88126b3502e07f091313827cd122e41f505b55a706482e",
+      "blockNumber": 679,
+      "blockchainLatencyMs": 175.97,
+      "serverRoundTripMs": 28.552,
+      "serverMetrics": {
+        "latencyMs": 19.294,
+        "ipfsStorageTimeMs": 17.892,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1513,
+        "benchmarkThroughputTPS": 0.7236,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 24,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0x911627f316c4c990c75b68e0255911b3a48aa12d453daa6cfe3cb16a9b58213d",
+      "blockNumber": 680,
+      "blockchainLatencyMs": 187.833,
+      "serverRoundTripMs": 53.452,
+      "serverMetrics": {
+        "latencyMs": 43.271,
+        "ipfsStorageTimeMs": 41.379,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.152,
+        "benchmarkThroughputTPS": 0.7263,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 25,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0xf9263f30b81a762e9684dbaa8e737c795527415250a7c37b2cb0b1b0d7d11926",
+      "blockNumber": 681,
+      "blockchainLatencyMs": 174.927,
+      "serverRoundTripMs": 51.751,
+      "serverMetrics": {
+        "latencyMs": 40.94,
+        "ipfsStorageTimeMs": 38.973,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1527,
+        "benchmarkThroughputTPS": 0.7294,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 26,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x1e8dba628d97909726558d11ca2c79c1a961d4d71af809ce818b71849c64af9b",
+      "blockNumber": 682,
+      "blockchainLatencyMs": 205.907,
+      "serverRoundTripMs": 53.404,
+      "serverMetrics": {
+        "latencyMs": 43.612,
+        "ipfsStorageTimeMs": 42.156,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1534,
+        "benchmarkThroughputTPS": 0.7315,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 27,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0xf308bb2b12e352746999895d25c68fa2ef2fde9bd4fe9fcb177a8073136e191f",
+      "blockNumber": 683,
+      "blockchainLatencyMs": 185.976,
+      "serverRoundTripMs": 52.994,
+      "serverMetrics": {
+        "latencyMs": 42.064,
+        "ipfsStorageTimeMs": 40.368,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1541,
+        "benchmarkThroughputTPS": 0.7339,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 28,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0x548a354fd459da936ac8a1e163b4f30c84608a8fdd13909eb9419c01c4c6a823",
+      "blockNumber": 684,
+      "blockchainLatencyMs": 161.198,
+      "serverRoundTripMs": 30.901,
+      "serverMetrics": {
+        "latencyMs": 19.414,
+        "ipfsStorageTimeMs": 17.913,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1548,
+        "benchmarkThroughputTPS": 0.737,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 29,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0xb344ca06b27f8c5ffdc9b397d4678d0910e59af8081b38be9a82bd4467962846",
+      "blockNumber": 685,
+      "blockchainLatencyMs": 207.013,
+      "serverRoundTripMs": 51.684,
+      "serverMetrics": {
+        "latencyMs": 41.273,
+        "ipfsStorageTimeMs": 39.744,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1555,
+        "benchmarkThroughputTPS": 0.7388,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 30,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0xdd6b140f4e646d0f7df83aba546c8f30a661a58688c067fd8377b1767a38d303",
+      "blockNumber": 686,
+      "blockchainLatencyMs": 168.218,
+      "serverRoundTripMs": 49.723,
+      "serverMetrics": {
+        "latencyMs": 40.429,
+        "ipfsStorageTimeMs": 38.82,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1562,
+        "benchmarkThroughputTPS": 0.741,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 31,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0x013f50bf7278fdc4e96e5f7a2f9f13dddbdf4cd0079f11964613e09777644aa0",
+      "blockNumber": 687,
+      "blockchainLatencyMs": 189.272,
+      "serverRoundTripMs": 55.632,
+      "serverMetrics": {
+        "latencyMs": 44.337,
+        "ipfsStorageTimeMs": 42.535,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1569,
+        "benchmarkThroughputTPS": 0.7425,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 32,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0x69910a7169faeea108a7f97f9fec73d02dc69a85d35158725aa8ae56b0409fa4",
+      "blockNumber": 688,
+      "blockchainLatencyMs": 175.228,
+      "serverRoundTripMs": 52.954,
+      "serverMetrics": {
+        "latencyMs": 43.598,
+        "ipfsStorageTimeMs": 41.69,
+        "fogProcessingTimeMs": 0.017,
+        "cumulativeThroughputTPS": 0.1576,
+        "benchmarkThroughputTPS": 0.7445,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 33,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x9207f5e82e7b4bba2a876a34a3084579020dab3f1d949d464d747a9b10092c2c",
+      "blockNumber": 689,
+      "blockchainLatencyMs": 252.564,
+      "serverRoundTripMs": 27.965,
+      "serverMetrics": {
+        "latencyMs": 18.966,
+        "ipfsStorageTimeMs": 17.162,
+        "fogProcessingTimeMs": 0.017,
+        "cumulativeThroughputTPS": 0.1583,
+        "benchmarkThroughputTPS": 0.7454,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 34,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x7b79c905bfda956c90193e694437190a7c74e5bd7d8e033cfb78b1137db6fbe1",
+      "blockNumber": 690,
+      "blockchainLatencyMs": 202.189,
+      "serverRoundTripMs": 54.53,
+      "serverMetrics": {
+        "latencyMs": 44.112,
+        "ipfsStorageTimeMs": 41.214,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.159,
+        "benchmarkThroughputTPS": 0.7465,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 35,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0x69ce799e98fb1f5060f0c4b230708bf619d9c1f88ddf1f199cfee4735a14d4c2",
+      "blockNumber": 691,
+      "blockchainLatencyMs": 220.49,
+      "serverRoundTripMs": 51.365,
+      "serverMetrics": {
+        "latencyMs": 40.649,
+        "ipfsStorageTimeMs": 38.986,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1597,
+        "benchmarkThroughputTPS": 0.7475,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 36,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0x430849dbf14cda8aed8843aef0e48df55877954ebfb369dec2688c574a900042",
+      "blockNumber": 692,
+      "blockchainLatencyMs": 159.49,
+      "serverRoundTripMs": 54.258,
+      "serverMetrics": {
+        "latencyMs": 41.278,
+        "ipfsStorageTimeMs": 39.242,
+        "fogProcessingTimeMs": 0.016,
+        "cumulativeThroughputTPS": 0.1604,
+        "benchmarkThroughputTPS": 0.7493,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 37,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0xf0ba816b74e9ecb85b523502311dc2b616a4f3217a2f908217b4f3629624ca80",
+      "blockNumber": 693,
+      "blockchainLatencyMs": 176.898,
+      "serverRoundTripMs": 57.73,
+      "serverMetrics": {
+        "latencyMs": 46.432,
+        "ipfsStorageTimeMs": 43.92,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1611,
+        "benchmarkThroughputTPS": 0.7508,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 38,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x20c09ef91e66cbdae90fed4a3f45780330c6ca721cdafd31fc38c65993af290c",
+      "blockNumber": 694,
+      "blockchainLatencyMs": 173.18,
+      "serverRoundTripMs": 55.394,
+      "serverMetrics": {
+        "latencyMs": 44.335,
+        "ipfsStorageTimeMs": 42.53,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1618,
+        "benchmarkThroughputTPS": 0.7521,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 39,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0xe62404403e0b529290ddbadd62a7a68c8a50d3ebca016e2e2e0530d8ff773da2",
+      "blockNumber": 695,
+      "blockchainLatencyMs": 189.269,
+      "serverRoundTripMs": 48.98,
+      "serverMetrics": {
+        "latencyMs": 37.676,
+        "ipfsStorageTimeMs": 36.141,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1625,
+        "benchmarkThroughputTPS": 0.7533,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 40,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0xdde821a8469a45c7b1d46cb8982aa60d11f4855a9ee7e6b37caf20df64cd1e03",
+      "blockNumber": 696,
+      "blockchainLatencyMs": 204.476,
+      "serverRoundTripMs": 34.409,
+      "serverMetrics": {
+        "latencyMs": 21.893,
+        "ipfsStorageTimeMs": 20.353,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1631,
+        "benchmarkThroughputTPS": 0.7545,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 41,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x3dcac30da10413ccc2982cd9f00c6277b9551a8170324d1058b453b7adc192e4",
+      "blockNumber": 697,
+      "blockchainLatencyMs": 173.066,
+      "serverRoundTripMs": 50.578,
+      "serverMetrics": {
+        "latencyMs": 40.835,
+        "ipfsStorageTimeMs": 39.382,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1638,
+        "benchmarkThroughputTPS": 0.7557,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 42,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x4032b989d43b088e95363e5ac6a085f4ea9e49112aeaa6f0eba48b21410be442",
+      "blockNumber": 698,
+      "blockchainLatencyMs": 191.255,
+      "serverRoundTripMs": 55.977,
+      "serverMetrics": {
+        "latencyMs": 44.496,
+        "ipfsStorageTimeMs": 42.957,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1645,
+        "benchmarkThroughputTPS": 0.7567,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 43,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0xbf2eefa207ea783894ba8fcd7b83ab605026e669d4dd0c02d0c7eddfdabfa637",
+      "blockNumber": 699,
+      "blockchainLatencyMs": 188.772,
+      "serverRoundTripMs": 69.03,
+      "serverMetrics": {
+        "latencyMs": 58.511,
+        "ipfsStorageTimeMs": 56.891,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1652,
+        "benchmarkThroughputTPS": 0.7573,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 44,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0xaa42746f84466d7e4e0592c2e402ad8948ea7d5c63d971255a0224d73542f66b",
+      "blockNumber": 700,
+      "blockchainLatencyMs": 173.198,
+      "serverRoundTripMs": 51.435,
+      "serverMetrics": {
+        "latencyMs": 39.931,
+        "ipfsStorageTimeMs": 38.293,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1659,
+        "benchmarkThroughputTPS": 0.7583,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 45,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0x2c50aede84717593352633dcf55a1ea92c81b974f8ca30373fa8e5cb0ca4d5c8",
+      "blockNumber": 701,
+      "blockchainLatencyMs": 176.875,
+      "serverRoundTripMs": 36.063,
+      "serverMetrics": {
+        "latencyMs": 25.965,
+        "ipfsStorageTimeMs": 24.162,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1665,
+        "benchmarkThroughputTPS": 0.7595,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 46,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x79f5b0d64b018058e71213c76a1747a0e367709bcb1319375871c0d3d3164fc8",
+      "blockNumber": 702,
+      "blockchainLatencyMs": 223.063,
+      "serverRoundTripMs": 28.847,
+      "serverMetrics": {
+        "latencyMs": 17.277,
+        "ipfsStorageTimeMs": 15.515,
+        "fogProcessingTimeMs": 0.015,
+        "cumulativeThroughputTPS": 0.1672,
+        "benchmarkThroughputTPS": 0.7602,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 47,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0x59931bcdf7c5bd80edb728deccb207d29443863b84b9ba73824324c590620a6e",
+      "blockNumber": 703,
+      "blockchainLatencyMs": 176.957,
+      "serverRoundTripMs": 43.041,
+      "serverMetrics": {
+        "latencyMs": 32.077,
+        "ipfsStorageTimeMs": 30.397,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1679,
+        "benchmarkThroughputTPS": 0.7612,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 48,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0x60781eb23d2bcbab75f32184734854c3ab82265cb792cb6cfc510ba95c1d4d8a",
+      "blockNumber": 704,
+      "blockchainLatencyMs": 181.796,
+      "serverRoundTripMs": 55.58,
+      "serverMetrics": {
+        "latencyMs": 44.511,
+        "ipfsStorageTimeMs": 42.943,
+        "fogProcessingTimeMs": 0.013,
+        "cumulativeThroughputTPS": 0.1686,
+        "benchmarkThroughputTPS": 0.7621,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 49,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x9a7dd5fab035b30fcb2a4e1ca9c1bc3074da7e38ae9324903172db1718b809b4",
+      "blockNumber": 705,
+      "blockchainLatencyMs": 174.665,
+      "serverRoundTripMs": 58.685,
+      "serverMetrics": {
+        "latencyMs": 46.083,
+        "ipfsStorageTimeMs": 44.542,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1692,
+        "benchmarkThroughputTPS": 0.7629,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    },
+    {
+      "sequence": 50,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x2ed3e8d9decda27005bf08ea6f184fb6b2b1db64722e47dafed5554168b7ae7b",
+      "blockNumber": 706,
+      "blockchainLatencyMs": 220.224,
+      "serverRoundTripMs": 51.096,
+      "serverMetrics": {
+        "latencyMs": 40.499,
+        "ipfsStorageTimeMs": 38.914,
+        "fogProcessingTimeMs": 0.014,
+        "cumulativeThroughputTPS": 0.1699,
+        "benchmarkThroughputTPS": 0.7631,
+        "benchmarkId": "FOG_RUN_04_50TX_1789693388006"
+      }
+    }
+  ]
+}

@@ -1,0 +1,286 @@
+import React, { useState } from "react";
+import { ethers } from "ethers";
+import DrugSupplyChain from "./contracts/DrugSupplyChain.json"; // ABI path
+
+// Replace with your deployed contract address
+const contractAddress = "0xb01721F6DF0583dD202477F2695De9A952a47Cbd";
+function App() {
+  const [currentAccount, setCurrentAccount] = useState(null);
+  const [contract, setContract] = useState(null);
+
+  // ********** STATES **********
+  //const [mhfw, setMhfw] = useState({ govId: "", name: "", licenseApproval: "", distributorId: "" });
+  const [manufacturer, setManufacturer] = useState({ id: "", location: "", licenseNo: "", supplierId: "", govId: "" });
+  const [supplier, setSupplier] = useState({ id: "", name: "", location: "", licenseNo: "", govId: "" });
+  const [distributor, setDistributor] = useState({ id: "", name: "", location: "", licenseNo: "", manufacturerId: "" });
+  const [pharmacy, setPharmacy] = useState({ id: "", name: "", location: "", licenseNo: "", distributorId: "" });
+  const [customer, setCustomer] = useState({ id: "", name: "", contactInfo: "", pharmacyId: "" });
+  const [lot, setLot] = useState({ lotId: "", drugName: "", quantity: "", mfgDate: "", expDate: "", manufacturerId: "" });
+  const [shipment, setShipment] = useState({ shipmentId: "", lotId: "", sourceId: "", destinationId: "", shipDate: "", status: "" });
+  const [audit, setAudit] = useState({ auditId: "", entity: "", action: "", timestamp: "", userId: "" });
+
+  // New state for IPFS results
+  const [ipfsCid, setIpfsCid] = useState(null);
+  const [ipfsUrl, setIpfsUrl] = useState(null);
+
+  // ********** CONNECT WALLET **********
+  const connectWallet = async () => {
+    if (!window.ethereum) {
+      alert("Please install MetaMask!");
+      return;
+    }
+    try {
+      const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+      setCurrentAccount(accounts[0]);
+      const provider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await provider.getSigner();
+      const contractInstance = new ethers.Contract(contractAddress, DrugSupplyChain.abi, signer);
+      setContract(contractInstance);
+      console.log("Contract loaded:", contractInstance.target);
+    } catch (err) {
+      console.error("Wallet connection failed:", err);
+    }
+  };
+
+  // ********** HELPER: TX + Fog Node + IPFS **********
+  const handleTx = async (txPromise, successMsg) => {
+    if (!contract) {
+      alert("Contract not ready yet. Connect your wallet first.");
+      return;
+    }
+  
+    try {
+      const tx = await txPromise;
+      console.log("Transaction sent:", tx.hash);
+  
+      await tx.wait();
+  
+      // Send tx.hash to backend (Fog Node + IPFS)
+      const res = await fetch("http://localhost:4000/store", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ txHash: tx.hash }),
+      });
+  
+      const data = await res.json();
+      const cidStr = data.cid;  // Correct key
+  
+      // Gateway URL for IPFS Desktop
+      const gatewayUrl = `http://127.0.0.1:8080/ipfs/${cidStr}`;
+  
+      setIpfsCid(cidStr);
+      setIpfsUrl(gatewayUrl);
+  
+      alert(`${successMsg}\nTX: ${tx.hash}\nIPFS CID: ${cidStr}`);
+    } catch (err) {
+      console.error("Transaction failed:", err);
+      alert("Transaction failed. See console.");
+    }
+  };
+
+  // ********** CONTRACT CALLS **********
+  /*const addMHFW = () =>
+    handleTx(
+      contract.addMHFW(Number(mhfw.govId), mhfw.name, mhfw.licenseApproval, Number(mhfw.distributorId)),
+      "MHFW Added!"
+    );
+    */
+
+  const addManufacturer = () =>
+    handleTx(
+      contract.addManufacturer(
+        Number(manufacturer.id),
+        manufacturer.location,
+        manufacturer.licenseNo,
+        Number(manufacturer.supplierId),
+        Number(manufacturer.govId)
+      ),
+      "Manufacturer Added!"
+    );
+
+  const addSupplier = () =>
+    handleTx(
+      contract.addSupplier(Number(supplier.id), supplier.name, supplier.location, supplier.licenseNo, Number(supplier.govId)),
+      "Supplier Added!"
+    );
+
+  const addDistributor = () =>
+    handleTx(
+      contract.addDistributor(
+        Number(distributor.id),
+        distributor.name,
+        distributor.location,
+        distributor.licenseNo,
+        Number(distributor.manufacturerId)
+      ),
+      "Distributor Added!"
+    );
+
+  const addPharmacy = () =>
+    handleTx(
+      contract.addPharmacy(Number(pharmacy.id), pharmacy.name, pharmacy.location, pharmacy.licenseNo, Number(pharmacy.distributorId)),
+      "Pharmacy Added!"
+    );
+
+  const addCustomer = () =>
+    handleTx(
+      contract.addCustomer(Number(customer.id), customer.name, customer.contactInfo, Number(customer.pharmacyId)),
+      "Customer Added!"
+    );
+
+  const addLot = () =>
+    handleTx(
+      contract.addLot(
+        Number(lot.lotId),
+        lot.drugName,
+        Number(lot.quantity),
+        lot.mfgDate,
+        lot.expDate,
+        Number(lot.manufacturerId)
+      ),
+      "Lot Added!"
+    );
+
+  const addShipment = () =>
+    handleTx(
+      contract.addShipment(
+        Number(shipment.shipmentId),
+        Number(shipment.lotId),
+        Number(shipment.sourceId),
+        Number(shipment.destinationId),
+        shipment.shipDate,
+        shipment.status
+      ),
+      "Shipment Added!"
+    );
+
+  const addAuditLog = () =>
+    handleTx(
+      contract.addAuditLog(
+        Number(audit.auditId),
+        audit.entity,
+        audit.action,
+        audit.timestamp,
+        Number(audit.userId)
+      ),
+      "AuditLog Added!"
+    );
+
+  // ********** RENDER **********
+  return (
+    <div className="p-6 max-w-3xl mx-auto space-y-10">
+      <h1 className="text-3xl font-bold">Drug Supply Chain DApp</h1>
+
+      {!currentAccount ? (
+        <button onClick={connectWallet} className="bg-blue-600 text-white px-4 py-2 rounded-lg">
+          Connect MetaMask
+        </button>
+      ) : (
+        <p className="mb-4">Connected Wallet: {currentAccount}</p>
+      )}
+
+      {/* Disable forms until contract is ready */}
+      <fieldset disabled={!contract} className={!contract ? "opacity-50" : ""}>
+        
+        {/* MHFW 
+        <section>
+          <h2 className="text-xl font-semibold">Add MHFW</h2>
+          <input placeholder="Gov ID" value={mhfw.govId} onChange={(e) => setMhfw({ ...mhfw, govId: e.target.value })} />
+          <input placeholder="Name" value={mhfw.name} onChange={(e) => setMhfw({ ...mhfw, name: e.target.value })} />
+          <input placeholder="License Approval" value={mhfw.licenseApproval} onChange={(e) => setMhfw({ ...mhfw, licenseApproval: e.target.value })} />
+          <input placeholder="Distributor ID" value={mhfw.distributorId} onChange={(e) => setMhfw({ ...mhfw, distributorId: e.target.value })} />
+          <button onClick={addMHFW}>Add MHFW</button>
+        </section>
+      */}
+
+        {/* Manufacturer */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Manufacturer</h2>
+          {Object.keys(manufacturer).map((k) => (
+            <input key={k} placeholder={k} value={manufacturer[k]} onChange={(e) => setManufacturer({ ...manufacturer, [k]: e.target.value })} />
+          ))}
+          <button onClick={addManufacturer}>Add Manufacturer</button>
+        </section>
+
+        {/* Supplier */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Supplier</h2>
+          {Object.keys(supplier).map((k) => (
+            <input key={k} placeholder={k} value={supplier[k]} onChange={(e) => setSupplier({ ...supplier, [k]: e.target.value })} />
+          ))}
+          <button onClick={addSupplier}>Add Supplier</button>
+        </section>
+
+        {/* Distributor */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Distributor</h2>
+          {Object.keys(distributor).map((k) => (
+            <input key={k} placeholder={k} value={distributor[k]} onChange={(e) => setDistributor({ ...distributor, [k]: e.target.value })} />
+          ))}
+          <button onClick={addDistributor}>Add Distributor</button>
+        </section>
+
+        {/* Pharmacy */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Pharmacy</h2>
+          {Object.keys(pharmacy).map((k) => (
+            <input key={k} placeholder={k} value={pharmacy[k]} onChange={(e) => setPharmacy({ ...pharmacy, [k]: e.target.value })} />
+          ))}
+          <button onClick={addPharmacy}>Add Pharmacy</button>
+        </section>
+
+        {/* Customer */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Customer</h2>
+          {Object.keys(customer).map((k) => (
+            <input key={k} placeholder={k} value={customer[k]} onChange={(e) => setCustomer({ ...customer, [k]: e.target.value })} />
+          ))}
+          <button onClick={addCustomer}>Add Customer</button>
+        </section>
+
+        {/* Lot */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Lot Batch</h2>
+          {Object.keys(lot).map((k) => (
+            <input key={k} placeholder={k} value={lot[k]} onChange={(e) => setLot({ ...lot, [k]: e.target.value })} />
+          ))}
+          <button onClick={addLot}>Add Lot</button>
+        </section>
+
+        {/* Shipment */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Shipment</h2>
+          {Object.keys(shipment).map((k) => (
+            <input key={k} placeholder={k} value={shipment[k]} onChange={(e) => setShipment({ ...shipment, [k]: e.target.value })} />
+          ))}
+          <button onClick={addShipment}>Add Shipment</button>
+        </section>
+
+        {/* Audit Log */}
+        <section>
+          <h2 className="text-xl font-semibold">Add Audit Log</h2>
+          {Object.keys(audit).map((k) => (
+            <input key={k} placeholder={k} value={audit[k]} onChange={(e) => setAudit({ ...audit, [k]: e.target.value })} />
+          ))}
+          <button onClick={addAuditLog}>Add Audit</button>
+        </section>
+      </fieldset>
+
+      {/* Display IPFS CID + Link */}
+      {ipfsUrl && (
+        <section className="mt-6">
+          <h2 className="text-xl font-semibold">Latest IPFS Record</h2>
+          <p>CID: {ipfsCid}</p>
+          <p>
+            Link:{"http://localhost:4000"}
+            <a href={ipfsUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+              {ipfsUrl}
+            </a>
+          </p>
+        </section>
+      )}
+    </div>
+  );
+}
+
+export default App;

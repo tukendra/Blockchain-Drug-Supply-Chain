@@ -1,0 +1,230 @@
+{
+  "experiment": {
+    "architecture": "WITHOUT_FOG",
+    "condition": "NO_FOG",
+    "runNumber": 1,
+    "transactionCount": 10,
+    "delayMs": 1000,
+    "benchmarkId": "NO_FOG_RUN_01_10TX_1789689175951",
+    "chainId": 1337,
+    "rpcUrl": "http://127.0.0.1:7545",
+    "contractAddress": "0xc1d164b6F650aCB8b77C802198995B44EFA6aAD6",
+    "benchmarkStartTime": "2026-09-17T23:52:55.990Z",
+    "generatedAt": "2026-09-17T23:53:10.228Z"
+  },
+  "resultsSummary": {
+    "successfulTransactions": 10,
+    "failedTransactions": 0,
+    "successRatePercent": 100,
+    "elapsedSeconds": 14.235,
+    "controlledThroughputTPS": 0.7025,
+    "serverReportedThroughputTPS": 0.7025
+  },
+  "metrics": {
+    "successfulTransactions": 10,
+    "failedTransactions": 0,
+    "successRatePercent": 100,
+    "endToEndLatencyMs": {
+      "n": 10,
+      "mean": 33.165,
+      "median": 23.671,
+      "standardDeviation": 22.7,
+      "p95": 74.678,
+      "ci95HalfWidth": 14.07,
+      "min": 19.212,
+      "max": 89.782
+    },
+    "ipfsStorageTimeMs": {
+      "n": 10,
+      "mean": 30.707,
+      "median": 21.568,
+      "standardDeviation": 22.195,
+      "p95": 71.456,
+      "ci95HalfWidth": 13.757,
+      "min": 17.201,
+      "max": 85.732
+    },
+    "blockchainConfirmationMs": {
+      "n": 10,
+      "mean": 467.335,
+      "median": 464.799,
+      "standardDeviation": 111.65,
+      "p95": 619.745,
+      "ci95HalfWidth": 69.201,
+      "min": 220.051,
+      "max": 652.291
+    },
+    "serverRoundTripMs": {
+      "n": 10,
+      "mean": 45.658,
+      "median": 35.858,
+      "standardDeviation": 23.354,
+      "p95": 88.066,
+      "ci95HalfWidth": 14.475,
+      "min": 31.553,
+      "max": 104.869
+    },
+    "fogOrEdgeProcessingMs": {
+      "n": 0,
+      "mean": null,
+      "median": null,
+      "standardDeviation": null,
+      "p95": null,
+      "ci95HalfWidth": null,
+      "min": null,
+      "max": null
+    }
+  },
+  "transactions": [
+    {
+      "sequence": 1,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0x191a3c0557d015bf7cc8bbe5c189c6f8dd774f7c3c0204fb08902092c2df17fd",
+      "blockNumber": 407,
+      "blockchainLatencyMs": 501.644,
+      "serverRoundTripMs": 104.869,
+      "serverMetrics": {
+        "latencyMs": 89.782,
+        "ipfsStorageTimeMs": 85.732,
+        "throughputTPS": 0.0018
+      }
+    },
+    {
+      "sequence": 2,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0xc71d6f2074d538e76661a1080b1fefb885a64a9730625603e8352b41e982bba9",
+      "blockNumber": 408,
+      "blockchainLatencyMs": 458.459,
+      "serverRoundTripMs": 43.491,
+      "serverMetrics": {
+        "latencyMs": 31.404,
+        "ipfsStorageTimeMs": 28.629,
+        "throughputTPS": 0.0035
+      }
+    },
+    {
+      "sequence": 3,
+      "entity": "Distributor",
+      "operation": "addDistributor",
+      "status": "SUCCESS",
+      "txHash": "0xa49addcef450b5d6817cc782464fa088b90ee974aea1cac9d1d0eb654cb18843",
+      "blockNumber": 409,
+      "blockchainLatencyMs": 471.14,
+      "serverRoundTripMs": 67.528,
+      "serverMetrics": {
+        "latencyMs": 56.218,
+        "ipfsStorageTimeMs": 54.007,
+        "throughputTPS": 0.0053
+      }
+    },
+    {
+      "sequence": 4,
+      "entity": "Pharmacy",
+      "operation": "addPharmacy",
+      "status": "SUCCESS",
+      "txHash": "0x2ee068208d955ae6d97e5fbb9eb172e03de0fbf19a0c8798c4a137fed36e1a52",
+      "blockNumber": 410,
+      "blockchainLatencyMs": 471.809,
+      "serverRoundTripMs": 31.553,
+      "serverMetrics": {
+        "latencyMs": 19.942,
+        "ipfsStorageTimeMs": 17.997,
+        "throughputTPS": 0.007
+      }
+    },
+    {
+      "sequence": 5,
+      "entity": "Customer",
+      "operation": "addCustomer",
+      "status": "SUCCESS",
+      "txHash": "0xafb5c16e11777d0350854439f6e053f3d6a734b2063288e06194592f9cfc07d8",
+      "blockNumber": 411,
+      "blockchainLatencyMs": 422.768,
+      "serverRoundTripMs": 35.559,
+      "serverMetrics": {
+        "latencyMs": 24.453,
+        "ipfsStorageTimeMs": 22.333,
+        "throughputTPS": 0.0087
+      }
+    },
+    {
+      "sequence": 6,
+      "entity": "Lot",
+      "operation": "addLot",
+      "status": "SUCCESS",
+      "txHash": "0x84ca4fab24f0fc0679b4c3cbf4b2682ff7fcbdfa007ba7e87f32074d6780ca28",
+      "blockNumber": 412,
+      "blockchainLatencyMs": 579.966,
+      "serverRoundTripMs": 33.794,
+      "serverMetrics": {
+        "latencyMs": 21.424,
+        "ipfsStorageTimeMs": 18.711,
+        "throughputTPS": 0.0104
+      }
+    },
+    {
+      "sequence": 7,
+      "entity": "Shipment",
+      "operation": "addShipment",
+      "status": "SUCCESS",
+      "txHash": "0xc948598b932f92008967a66a62f14727d660f9d8bfe4a2af664593e08a08cea6",
+      "blockNumber": 413,
+      "blockchainLatencyMs": 220.051,
+      "serverRoundTripMs": 37.824,
+      "serverMetrics": {
+        "latencyMs": 19.212,
+        "ipfsStorageTimeMs": 17.201,
+        "throughputTPS": 0.0121
+      }
+    },
+    {
+      "sequence": 8,
+      "entity": "AuditLog",
+      "operation": "addAuditLog",
+      "status": "SUCCESS",
+      "txHash": "0x7ba12830b0d0aae3153a2adad0e995436890787bac940b0ccea8c02a3f8ed4bb",
+      "blockNumber": 414,
+      "blockchainLatencyMs": 652.291,
+      "serverRoundTripMs": 33.574,
+      "serverMetrics": {
+        "latencyMs": 21.093,
+        "ipfsStorageTimeMs": 18.894,
+        "throughputTPS": 0.0138
+      }
+    },
+    {
+      "sequence": 9,
+      "entity": "Manufacturer",
+      "operation": "addManufacturer",
+      "status": "SUCCESS",
+      "txHash": "0xc78d4145c55f2a1b4076c00474d9cfda1ccdc69179aefed9b404b8f18b52b245",
+      "blockNumber": 415,
+      "blockchainLatencyMs": 454.406,
+      "serverRoundTripMs": 36.156,
+      "serverMetrics": {
+        "latencyMs": 25.235,
+        "ipfsStorageTimeMs": 22.76,
+        "throughputTPS": 0.0155
+      }
+    },
+    {
+      "sequence": 10,
+      "entity": "Supplier",
+      "operation": "addSupplier",
+      "status": "SUCCESS",
+      "txHash": "0x8d451c3e99aa94d2715320ab8f7995735a4f2bb6ab1106924db631217eb80cc6",
+      "blockNumber": 416,
+      "blockchainLatencyMs": 440.815,
+      "serverRoundTripMs": 32.229,
+      "serverMetrics": {
+        "latencyMs": 22.888,
+        "ipfsStorageTimeMs": 20.803,
+        "throughputTPS": 0.0172
+      }
+    }
+  ]
+}
