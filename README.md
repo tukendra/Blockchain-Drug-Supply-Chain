@@ -1,6 +1,6 @@
 # Blockchain-Driven Trustworthy Drug Supply Chain Management
 
-A research prototype for secure, transparent, traceable, and auditable drug supply-chain transactions using Ethereum-compatible smart contracts, Ganache, IPFS/Kubo, React.js, and a Node.js Fog/Edge processing layer.
+A research prototype for secure, transparent, traceable, and auditable drug supply-chain transactions using Ethereum-compatible smart contracts, Ganache, IPFS/Kubo, React.js, and a Node.js Fog processing layer.
 
 **Manuscript:** *Blockchain-Driven Trustworthy Framework for End-to-End Secure, Transparent, and Traceable Drug Supply Chain Management*
 
@@ -14,10 +14,10 @@ A research prototype for secure, transparent, traceable, and auditable drug supp
 - LotBatch, Shipment, and AuditLog support
 - Required-field, expiry, and duplicate-lot validation
 - IPFS-based off-chain storage and CID generation
-- Fog/Edge-side validation, processing, and optional caching
+- Fog-side validation, processing, and optional caching
 - Blockchain event-based auditability and traceability
 - Latency, controlled throughput, IPFS storage time, confirmation time, and success-rate measurement
-- Controlled Fog/Edge versus No-Fog benchmarking
+- Controlled Fog versus No-Fog benchmarking
 
 ## Architecture
 
@@ -29,7 +29,7 @@ Ethereum-Compatible Blockchain (Ganache)
         |
         | Smart-contract transactions/events
         v
-Fog / Edge Processing Layer
+Fog Processing Layer
 Node.js / Express.js
   | validation
   | duplicate detection
@@ -47,7 +47,7 @@ Content Identifier (CID)
 
 1. A stakeholder submits drug-supply-chain information through the React frontend.
 2. MetaMask supplies the blockchain account used for the transaction.
-3. The Fog/Edge backend validates the submitted data.
+3. The Fog backend validates the submitted data.
 4. Duplicate and data-quality checks are performed.
 5. Detailed off-chain data is stored in IPFS.
 6. IPFS returns a Content Identifier (CID).
@@ -150,7 +150,7 @@ npm install
 If the backend is maintained in a separate directory with its own `package.json`:
 
 ```bash
-cd edge-server
+cd fog-server
 npm install
 cd ..
 ```
@@ -210,7 +210,7 @@ http://127.0.0.1:8080/ipfs/<CID>
 
 A CID is an **IPFS Content Identifier**, not an Ethereum address.
 
-# Start the Fog / Edge Server
+# Start the Fog Server
 
 The main backend performs validation, IPFS storage, processing, and performance logging.
 
@@ -254,10 +254,10 @@ http://localhost:3000
 
 The repository supports comparison between:
 
-### Fog/Edge-enabled configuration
+### Fog-enabled configuration
 
 ```text
-Blockchain + Fog/Edge Processing + IPFS
+Blockchain + Fog Processing + IPFS
 ```
 
 Implemented through:
@@ -286,7 +286,7 @@ The documented benchmark uses:
 
 - Workloads: **10, 50, and 100 transactions**
 - Independent runs: **5 per workload/configuration**
-- Configurations: **Fog/Edge and No-Fog**
+- Configurations: **Fog and No-Fog**
 - Concurrency: **1**
 - Inter-transaction delay: **1000 ms**
 - Same transaction sequence for paired configurations
@@ -310,7 +310,7 @@ Total benchmark transaction executions:
 | Controlled TPS | Throughput under the controlled workload |
 | Success Rate | Percentage of successfully completed transactions |
 
-The benchmark is intended to characterize **workload-dependent behavior**, not to claim a universal performance advantage for Fog/Edge processing.
+The benchmark is intended to characterize **workload-dependent behavior**, not to claim a universal performance advantage for Fog processing.
 
 # Performance Files
 
